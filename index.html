@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Gestión de Tareas</title>
+  <!-- Agrega esta línea: -->
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Gestionador de Tareas</h1>
+    </header>
+
+    <main class="container">
+      <!-- Formulario para crear/editar -->
+      <section class="card">
+        <h2 id="form-title">Nueva Tarea</h2>
+        <form id="task-form">
+          <input type="hidden" id="task-id" />
+          
+          <div class="form-group">
+            <input type="text" id="title" placeholder="Título" required />
+          </div>
+          
+          <div class="form-group">
+            <textarea id="description" placeholder="Descripción" rows="3" required></textarea>
+          </div>
+
+          <div class="form-row">
+            <input type="text" id="category" placeholder="Categoría (ej. Trabajo)" required />
+            <select id="priority" required>
+              <option value="baja">Prioridad Baja</option>
+              <option value="media" selected>Prioridad Media</option>
+              <option value="alta">Prioridad Alta</option>
+            </select>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" id="btn-save">Guardar Tarea</button>
+            <button type="button" id="btn-cancel" class="hidden">Cancelar</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Filtros y Búsqueda -->
+      <section class="card filters-section">
+        <input type="text" id="search-input" placeholder="🔍 Buscar por título..." />
+        
+        <div class="filter-controls">
+          <select id="filter-status">
+            <option value="todas">Todas las tareas</option>
+            <option value="pendientes">Pendientes</option>
+            <option value="completadas">Completadas</option>
+          </select>
+
+          <select id="filter-priority">
+            <option value="todas">Todas las prioridades</option>
+            <option value="alta">Alta</option>
+            <option value="media">Media</option>
+            <option value="baja">Baja</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Listado de Tareas -->
+      <section class="tasks-container">
+        <ul id="task-list" class="task-list"></ul>
+
+        <script type="module" src="/src/main.ts"></script>
+
+      </section>
+    </main>
+  </div>
+</body>
+</html>
